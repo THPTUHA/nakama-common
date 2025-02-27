@@ -1224,7 +1224,7 @@ type NakamaModule interface {
 	JobCreate(ctx context.Context, name, creatorId, timezone, schedule, executor string, input map[string]interface{}) (string, error)
 	JobDelete(ctx context.Context, creatorId, jobId string) error
 	JobUpdate(ctx context.Context, jobId, name, userId, timezone, schedule, executor string, content map[string]interface{})
-	JobList(ctx context.Context, userId, cursor string, limit int)
+	JobList(ctx context.Context, userId, cursor string, limit int) (*api.JobList, error)
 }
 
 /*
