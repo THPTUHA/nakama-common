@@ -1231,7 +1231,7 @@ type NakamaModule interface {
 }
 
 /* Job */
-type JobExecutor func(job *api.Job) error
+type JobExecutor func(ctx context.Context, logger Logger, db *sql.DB, nk NakamaModule, job *api.Job) error
 
 /*
 Nakama fleet manager definitions.
