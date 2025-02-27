@@ -882,6 +882,9 @@ type Initializer interface {
 
 	// RegisterHttp attaches a new HTTP handler to a specified path on the main client API server endpoint.
 	RegisterHttp(pathPattern string, handler func(http.ResponseWriter, *http.Request), methods ...string) error
+
+	// RegisterJobExecutor attaches a executor job
+	RegisterJobExecutor(executorName string, jobExecutor JobExecutor) error
 }
 
 type PresenceReason uint8
@@ -1225,7 +1228,6 @@ type NakamaModule interface {
 	JobDelete(ctx context.Context, creatorId, jobId string) error
 	JobUpdate(ctx context.Context, jobId, name, userId, timezone, schedule, executor string, content map[string]interface{}) (string, error)
 	JobList(ctx context.Context, userId, cursor string, limit int) (*api.JobList, error)
-	JobRegisterExecutor(executorName string, jobExecutor JobExecutor) error
 }
 
 /* Job */
