@@ -22,7 +22,7 @@ package nakama.api;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/heroiclabs/nakama-common/api";
+option go_package = "github.com/THPTUHA/nakama-common/api";
 
 option java_multiple_files = true;
 option java_outer_classname = "NakamaApi";
@@ -1419,4 +1419,42 @@ enum Operator {
   INCREMENT = 3;
   // Override the leaderboard operator with DECREMENT.
   DECREMENT = 4;
+}
+
+// A job in the server.
+message Job {
+  // The id of a job.
+  string id = 1;
+  // The id of the user who created the job.
+  string creator_id = 2;
+  // The unique name of the job.
+  string name = 3;
+  // A timezone for the job.
+  string timezone = 4;
+  // corn job
+  string schedule = 5;
+  // error count 
+  int32 error_count = 6;
+  // success count
+  int32 success_count = 7;
+  // input for job
+  string input = 8;
+  // The user update
+  int32 updatorId = 9;
+  // executor
+  string executor = 10;
+  // state execute job
+  int32 state = 11;
+  // The UNIX time (for gRPC clients) or ISO string (for REST clients) when the group was created.
+  google.protobuf.Timestamp create_time = 12;
+  // The UNIX time (for gRPC clients) or ISO string (for REST clients) when the group was last updated.
+  google.protobuf.Timestamp update_time = 13;
+}
+
+// One or more groups returned from a listing operation.
+message JobList {
+  // One or more groups.
+  repeated Job jobs = 1;
+  // A cursor used to get the next page.
+  string cursor = 2;
 }
