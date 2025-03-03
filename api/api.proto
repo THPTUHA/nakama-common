@@ -895,6 +895,8 @@ message Notification {
   google.protobuf.Timestamp create_time = 6;
   // True if this notification was persisted to the database.
   bool persistent = 7;
+   // State of this notification.
+  int32 state = 8;
 }
 
 // A collection of zero or more notifications.
