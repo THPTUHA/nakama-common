@@ -1129,6 +1129,7 @@ type NakamaModule interface {
 	NotificationsDelete(ctx context.Context, notifications []*NotificationDelete) error
 	NotificationsGetId(ctx context.Context, userID string, ids []string) ([]*Notification, error)
 	NotificationsDeleteId(ctx context.Context, userID string, ids []string) error
+	NotificationsMarkRead(ctx context.Context, userID string, ids []string) error
 
 	WalletUpdate(ctx context.Context, userID string, changeset map[string]int64, metadata map[string]interface{}, updateLedger bool) (updated map[string]int64, previous map[string]int64, err error)
 	WalletsUpdate(ctx context.Context, updates []*WalletUpdate, updateLedger bool) ([]*WalletUpdateResult, error)
