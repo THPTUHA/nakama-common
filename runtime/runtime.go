@@ -1191,7 +1191,7 @@ type NakamaModule interface {
 	GroupDelete(ctx context.Context, id string) error
 	GroupUserJoin(ctx context.Context, groupID, userID, username string) error
 	GroupUserLeave(ctx context.Context, groupID, userID, username string) error
-	GroupUsersAdd(ctx context.Context, callerID, groupID string, userIDs []string) error
+	GroupUsersAdd(ctx context.Context, callerID, groupID string, userIDs []string, ignoreNoti bool) error
 	GroupUsersBan(ctx context.Context, callerID, groupID string, userIDs []string) error
 	GroupUsersKick(ctx context.Context, callerID, groupID string, userIDs []string) error
 	GroupUsersPromote(ctx context.Context, callerID, groupID string, userIDs []string) error
